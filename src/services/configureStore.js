@@ -1,4 +1,4 @@
-import {applyMiddleware, createStore} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import {createCycleMiddleware} from 'redux-cycles';
 import {run} from '@cycle/run';
 import {makeHTTPDriver} from '@cycle/http';
@@ -9,11 +9,14 @@ import main from './cycles'
 const configureStore = () => {
 
     const cycleMiddleware = createCycleMiddleware();
-    const { makeActionDriver , makeStateDriver } = cycleMiddleware;
+    const {makeActionDriver, makeStateDriver} = cycleMiddleware;
 
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(
         reducers,
-        applyMiddleware(cycleMiddleware)
+        composeEnhancers(
+            applyMiddleware(cycleMiddleware)
+        )
     );
 
     run(main, {
