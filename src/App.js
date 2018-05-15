@@ -8,8 +8,10 @@ class App extends Component {
     render () {
         return (
             <MuiThemeProvider>
-                <CssBaseline/>
-                <Search/>
+                <div>
+                    <CssBaseline/>
+                    <Search/>
+                </div>
             </MuiThemeProvider>
         );
     }

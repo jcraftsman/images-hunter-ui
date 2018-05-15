@@ -9,22 +9,10 @@ const styles = {
     },
 };
 
-const tilesData = [
-    {
-        url: 'https://cdn.pixabay.com/photo/2018/01/21/20/42/paper-3097505_1280.jpg',
-        description: 'Hey there, I love you!'
-    },
-    {
-        url: 'https://s3.eu-west-3.amazonaws.com/evolutionary-confidential/agent-elizabeth/1450344243_letter-document-image-master495.png',
-        title: 'confidential',
-        author: 'pashminu',
-    },
-];
-
-const ResultImg = () => (
+const ResultImg = ({images}) => (
     <GridList style={styles.gridList}>
         <Subheader>Documents found</Subheader>
-        {tilesData.map((tile) => (
+        {images.map((tile) => (
             <GridTile
                 key={tile.url}
                 title={tile.title}
