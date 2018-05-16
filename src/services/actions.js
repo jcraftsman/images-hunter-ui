@@ -6,12 +6,9 @@ export const searchImages = (keyword) => ({
 });
 
 export const receiveImages =
-    (images) => {
-    console.log(images);
-    return{
+    (images) => ({
         type: ActionTypes.SEARCH_DONE,
         payload: {
             images
         }
-    };
-};
+    });

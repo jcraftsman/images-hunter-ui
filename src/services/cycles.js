@@ -2,7 +2,6 @@ import {combineCycles} from 'redux-cycles';
 
 import * as ActionTypes from './ActionTypes';
 import * as actions from './actions';
-import {API_ROOT_URL} from './api-config';
 
 const fetchImagesByKeyword = (sources) => {
     const keyword$ = sources.ACTION
@@ -11,14 +10,14 @@ const fetchImagesByKeyword = (sources) => {
 
     const request$ = keyword$
         .map(keyword => ({
-            url: `${API_ROOT_URL}/hunt/${keyword}`,
+            url: `/hunt/${keyword}`,
             category: 'images'
         }));
 
     const response$ = sources.HTTP
         .select()
         .flatten()
-        .map(res => res.body.items)
+        .map(res => res.body)
         .map(actions.receiveImages);
 
     return {

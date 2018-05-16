@@ -1,1 +1,0 @@
-export const API_ROOT_URL = process.env.REACT_APP_HUNTER_API_URL;

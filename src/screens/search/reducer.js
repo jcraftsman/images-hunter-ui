@@ -7,7 +7,6 @@ const getImages = (state = {images: []}, action) => {
 
     switch (type) {
         case 'SEARCH':
-            console.log('Im searching');
             return {
                 ...state,
                 keyword: payload
@@ -17,10 +16,9 @@ const getImages = (state = {images: []}, action) => {
                 ...state,
             };
         case 'SEARCH_DONE':
-            console.log('Ive finished');
             return {
                 ...state,
-                images: payload,
+                images: payload.images,
             };
         case 'SEARCH_FAILED':
             return {
