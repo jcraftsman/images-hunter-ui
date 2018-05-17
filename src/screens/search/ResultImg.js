@@ -19,7 +19,9 @@ const ResultImg = ({images}) => (
                 subtitle={<span>by <b>{tile.author}</b></span>}
                 actionIcon={<IconButton><StarBorder color="white"/></IconButton>}
             >
-                <img src={tile.url} alt={tile.description}/>
+                <a href={tile.url} target="_blank">
+                    <img src={tile.url} alt={tile.description}/>
+                </a>
             </GridTile>
         ))}
     </GridList>
